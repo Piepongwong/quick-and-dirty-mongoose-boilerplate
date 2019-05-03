@@ -1,0 +1,10 @@
+<form action="customer" method="Post">
+    <input type="text" name="firstName" placeholder="firstname">
+    <input type="text" name="lastName" placeholder="lastname">
+    <select name="restaurants" multiple={{restaurants.length}}>
+        {{#each restaurants}}
+            <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+    </select>
+    <button type="submit">Create Customer</button>
+</form>

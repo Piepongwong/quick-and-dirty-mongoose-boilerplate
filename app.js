@@ -15,12 +15,13 @@ mongoose.connect('mongodb://localhost/michelin', {useNewUrlParser: true}, (err)=
     else console.log("ERROR ERROR ERROR", err)
 })
 
-app.use("/user", require("./routes/index"))
+app.use("/", require("./routes/index"))
 app.use("/", require("./routes/detail"))
 app.use("/", require("./routes/restaurant"))
 app.use("/", require("./routes/update"))
 app.use("/", require("./routes/delete"))
+app.use("/", require("./routes/customer"))
 
-app.listen(3000, ()=> {
+app.listen(3001, ()=> {
     console.log("Listening!!!!!")
 })
