@@ -1,3 +1,12 @@
 <h1> {{name}}</h1>
 <h1> {{_id}}</h1>
 <a href="/detail?id={{_id}}">detailed view</a>
+
+{{!-- <form action="/delete" method="Get">
+    <input type="hidden" value="{{_id}}" name="id">
+    <button type="submit">Delete me</button>
+</form> --}}
+
+<a href="/delete?id={{_id}}">
+    <button>Delete me</button>
+</a>

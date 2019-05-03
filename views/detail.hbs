@@ -1,4 +1,13 @@
-<h1>{{restaurant.name}}</h1>
+{{!-- <h1>{{restaurant.name}}</h1>
 <h1>{{restaurant.borough}}</h1>
 <h1>{{restaurant.cuisine}}</h1>
-<h1>{{restaurant.capacity}}</h1>
+<h1>{{restaurant.capacity}}</h1> --}}
+
+<form action="/update" method="POST">
+    <input type="hidden" name="id" value="{{restaurant._id}}">
+    <input type="text" name="name" placeholder="{{restaurant.name}}" value="{{restaurant.name}}">
+    <input type="text" name="borough" placeholder="{{restaurant.borough}}" value="{{restaurant.borough}}">
+    <input type="text" name="cuisine" placeholder="{{restaurant.cuisine}}" value="{{restaurant.cuisine}}">
+    <input type="text" name="capacity" placeholder="{{restaurant.capacity}}" value="{{restaurant.capacity}}">
+    <button type="submit">Update</button>
+</form>
