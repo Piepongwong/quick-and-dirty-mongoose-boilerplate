@@ -3,7 +3,12 @@ const app = express()
 const Restaurant = require("../models/restaurant")
 
 app.get("/restaurant", (req, res)=> {
-    res.render("addRestaurant")
+    if(req.cookies.loggedIn === "true") {
+        res.render("addRestaurant")
+    }
+    else {
+        res.send("bugger of")  
+    }
 })
 
 app.post("/restaurant", (req, res)=> {

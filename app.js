@@ -3,6 +3,9 @@ const app = express()
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 const hbs = require('hbs');
+const cookieParser = require('cookie-parser')
+
+app.use(cookieParser())
 
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -21,6 +24,7 @@ app.use("/", require("./routes/restaurant"))
 app.use("/", require("./routes/update"))
 app.use("/", require("./routes/delete"))
 app.use("/", require("./routes/customer"))
+app.use("/", require("./routes/user"))
 
 app.listen(3001, ()=> {
     console.log("Listening!!!!!")
