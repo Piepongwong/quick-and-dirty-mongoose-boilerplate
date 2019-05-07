@@ -20,11 +20,11 @@ mongoose.connect('mongodb://localhost/michelin', {useNewUrlParser: true}, (err)=
 
 app.use("/", require("./routes/index"))
 app.use("/", require("./routes/user"))
-app.use("/", authenticate, require("./routes/detail"))
-app.use("/", authenticate, require("./routes/restaurant"))
-app.use("/", authenticate, require("./routes/update"))
-app.use("/", authenticate, require("./routes/delete"))
-app.use("/", authenticate, require("./routes/customer"))
+app.use("/", require("./routes/detail"))
+app.use("/", require("./routes/restaurant"))
+app.use("/", require("./routes/update"))
+app.use("/", require("./routes/delete"))
+app.use("/", require("./routes/customer"))
 
 function authenticate(req, res, next) {
     if(req.signedCookies.loggedIn === "true") next()

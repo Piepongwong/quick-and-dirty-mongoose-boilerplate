@@ -56,6 +56,7 @@ app.post("/user/login", (req, res)=> {
                 bcrypt.compare(req.body.password, user[0].password, function(err, equal) {
                     // res == true
                     debugger
+                    if(err) throw new Error("Bcrypt error")
                     if(equal) {
                         res.cookie("loggedIn", "true", {signed: true})
                         res.send("logged in")
