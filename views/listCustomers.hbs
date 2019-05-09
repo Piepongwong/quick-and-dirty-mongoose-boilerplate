@@ -1,7 +1,9 @@
 {{#each customers}}
     <h1>{{first_name}}</h1>
     <h1>{{last_name}}</h1>
+    <ul>
     {{#each restaurants}}
-        <h1>{{name}}</h1>
+        <li>{{name}}</li>
     {{/each}}
+    </ul>
 {{/each}}

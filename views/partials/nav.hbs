@@ -1,6 +1,15 @@
 <ul>
-    <li><a href="/user/login">login</a></li>
-    <li><a href="/user/signup">signup</a></li>
+    <li><a href="/customer">add new customer</a></li>
     <li><a href="/">home</a></li>
     <li><a href="/restaurant">restaurant</a></li>
+
+{{#if currentUser}}
+    <li>Welcome {{currentUser.username}} </li>
+    <li><a href="/user/logout">logout</a></li>
+{{else}}
+
+    <li><a href="/user/login">login please</a></li>
+    <li><a href="/user/signup">signup</a></li>
+{{/if}}
+
 </ul>

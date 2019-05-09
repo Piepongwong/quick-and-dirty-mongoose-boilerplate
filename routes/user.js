@@ -44,20 +44,23 @@ app.get("/user/login", (req, res)=> {
 })
 
 app.get("/user/logout", (req, res)=> {
-    res.clearCookie("loggedIn")
-    res.redirect("/user/login")
+    // res.clearCookie("loggedIn")
+    req.session.destroy((err)=> {
+        if(err) res.redirect("/")
+        else res.redirect("/user/login")
+    })
+   
 })
 
 app.post("/user/login", (req, res)=> {
-    debugger
     User.find({username: req.body.username})
         .then((user)=> {
             if(user.length > 0) {
                 bcrypt.compare(req.body.password, user[0].password, function(err, equal) {
-                    // res == true
-                    debugger
                     if(equal) {
-                        res.cookie("loggedIn", "true", {signed: true})
+                            delete user[0].password
+                        req.session.currentUser = user[0];
+                        // res.cookie("loggedIn", "true", {signed: true})
                         res.send("logged in")
                     }
                     else {
